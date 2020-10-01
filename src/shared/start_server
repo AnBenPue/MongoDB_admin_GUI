@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Since we open the gui with root acces in order to run the MongoDB service, if the files are created in that instance, the files won't be accesible by non root users. Hence the change of rights.
+#chmod 777 credentials.json
+#chmod 777 UsersAndRoles.csv
+
+#Uncomment to run the server in background
+#mongod --auth --port 27017 --dbpath /var/lib/mongodb &
+
+#Run the server in a new terminal
+gnome-terminal --window -- bash -c "mongod --auth --port 27017 --dbpath /var/lib/mongodb"
+
+
