@@ -132,7 +132,7 @@ QString mongodb_document::getId()
  * @return id Id of the document.
  *
  **/
-bsoncxx::types::value mongodb_document::getIdGridfsFormat()
+bsoncxx::types::bson_value::value mongodb_document::getIdGridfsFormat()
 {
     QString id = mongodb_document::getId();
     // Build a valid mongodb id structure
@@ -142,7 +142,7 @@ bsoncxx::types::value mongodb_document::getIdGridfsFormat()
 
     // The open_download_stream method requires bsoncxx::types::value, therefore a conversion from bsoncxx::document::value is needed
     bsoncxx::document::element doc_element = id_View["_id"];
-    bsoncxx::types::value id_types_value{doc_element.get_value()};
+    bsoncxx::types::bson_value::value id_types_value{doc_element.get_value()};
     return id_types_value;
 }
 

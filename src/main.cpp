@@ -7,7 +7,6 @@
 #include <QDebug>
 
 #include <mongocxx/exception/query_exception.hpp>
-#include <mongocxx/v_noabi/mongocxx/exception/query_exception.hpp>
 /// \endcond
 
 #include <mongodb_table_model.h>

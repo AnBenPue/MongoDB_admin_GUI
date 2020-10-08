@@ -13,7 +13,7 @@
 #ifndef Q_MOC_RUN
     #include <mongocxx/options/insert.hpp>
     #include <bsoncxx/document/value.hpp>
-    #include <bsoncxx/types/value.hpp>
+    #include <bsoncxx/types/bson_value/value.hpp>
 #endif
 /// \endcond
 
@@ -39,7 +39,7 @@ public:
 
     QJsonObject getDoc();
     QString getId();
-    bsoncxx::types::value getIdGridfsFormat();
+    bsoncxx::types::bson_value::value getIdGridfsFormat();
 
     QJsonObject updateDocumentId(QString id);
     void insertKeyValuePair(QString &key, QJsonObject &value);

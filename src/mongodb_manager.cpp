@@ -972,7 +972,7 @@ bool mongodb_manager::deleteDocument(QString id)
         mongodb_document doc;
         doc.updateDocumentId(id);
 
-        bsoncxx::types::value id_GridFS = doc.getIdGridfsFormat();
+        bsoncxx::types::bson_value::value id_GridFS = doc.getIdGridfsFormat();
         _gridfs_bucket.delete_file(id_GridFS);
         return true;
     }
@@ -1283,7 +1283,8 @@ QString mongodb_manager::addDocumentGridFS(QString document, std::string file_na
     mongocxx::result::gridfs::upload result = uploader.close();
 
     // Get the id of the written file
-    bsoncxx::types::value bson_id = result.id();
+    bsoncxx::types::bson_value::view bson_id = result.id(); // ToDo: Check possible conflict between view and value
+
     bsoncxx::types::b_oid bson_oid = bson_id.get_oid();
     bsoncxx::oid bson_oid_value = bson_oid.value;
     QString id = QString::fromStdString(bson_oid_value.to_string());
@@ -1311,7 +1312,7 @@ mongodb_document mongodb_manager::getDocumentGridFS(QString id)
 
     // The open_download_stream method requires bsoncxx::types::value, therefore a conversion from bsoncxx::document::value is needed
     bsoncxx::document::element doc_element = id_doc_view["_id"];
-    bsoncxx::types::value id_types_value{doc_element.get_value()};
+    bsoncxx::types::bson_value::value id_types_value{doc_element.get_value()};
 
     // Strat the downloader with the given id
     mongocxx::gridfs::downloader downloader = _gridfs_bucket.open_download_stream(id_types_value);

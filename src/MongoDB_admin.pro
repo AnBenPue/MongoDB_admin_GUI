@@ -21,12 +21,13 @@ INSTALLS += icons
 DEFINES += QT_DEPRECATED_WARNINGS
 
 INCLUDEPATH += \
-    -I /usr/local/include/mongocxx/v_noabi \
-    -I /usr/local/include/bsoncxx/v_noabi \
+    -I /usr/local/include/mongocxx/v_noabi/mongocxx \
+    -I /usr/local/include/bsoncxx/v_noabi/bsoncxx\
+    -I /usr/local/include/libbson-1.0/bson \
     -I /usr/local/include/libmongoc-1.0 \
     -I /usr/local/lib
 
-LIBS += -L /usr/local/lib -lbsoncxx -lmongocxx
+LIBS += -L /usr/local/lib -lmongocxx -lbsoncxx
 
 DEFINES += SOURCE_PATH=\\\"$$PWD\\\"
 

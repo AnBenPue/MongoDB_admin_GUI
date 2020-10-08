@@ -1,4 +1,4 @@
-/// \cond
+    /// \cond
 #include <QTextBrowser>
 #include <QFileDialog>
 #include <QDebug>

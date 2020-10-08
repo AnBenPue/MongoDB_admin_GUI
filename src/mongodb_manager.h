@@ -11,6 +11,7 @@
     #include <mongocxx/database.hpp>
     #include <mongocxx/exception/server_error_code.hpp>
     #include <mongocxx/instance.hpp>
+    #include <bsoncxx/types/bson_value/value.hpp>
 #endif
 
 #include <string>

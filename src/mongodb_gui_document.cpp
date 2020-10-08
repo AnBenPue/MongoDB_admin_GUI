@@ -5,7 +5,7 @@
 #include <QDebug>
 #include <QPushButton>
 
-#include <mongocxx/v_noabi/mongocxx/exception/query_exception.hpp>
+#include <mongocxx/exception/query_exception.hpp>
 /// \endcond
 
 #include <mongodb_gui_document.h>
