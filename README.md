@@ -15,7 +15,7 @@ Make sure that the installed libraries are linked:
 ```sh
 sudo ldconfig
 ```
-The last stem consists on enabling the administrator rights:
+The last step consists on enabling the administrator rights:
 
 * [Enable Access Control](https://docs.mongodb.com/manual/tutorial/enable-authentication/)
 
